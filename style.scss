@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 微軟正黑體;
+}
+
+// 大盒子
+#kid-slider {
+    height: 100vh;
+    overflow: hidden;   // 溢出 隱藏
+
+    // 輪播項目
+    .kid-item {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: none;
+
+        // 圖片
+        img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            animation-name: kidImage;       // 動畫名稱
+            animation-duration: 1s;         // 動畫時間
+        }
+
+        // 標題
+        h1 {
+            position: absolute;
+            color: white;
+            top: 100px;
+            left: 150px;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            animation-name: kidTitle;
+            animation-duration: 0.8s;
+            animation-delay: 0.5s;              // 動畫延遲
+            animation-fill-mode: backwards;     // 停留在動畫開始的畫面 (forwards 相反)
+        }
+    }
+
+    // 要顯示的項目
+    .kid-active {
+        display: block;
+    }
+
+    // 大顆按鈕樣式
+    #kid-prev, #kid-next {
+        width: 80px;
+        height: 150px;
+        background: #ffffff66;
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    #kid-prev {
+        left: 0;
+    }
+    #kid-next {
+        right: 0;
+    }
+
+    #kid-buttons {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .kid-button {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #ffffff77;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        kid-button-active {
+            animation-name: kidButton;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;      // 停留在畫面結束的畫面(backwards 相反)
+        }
+    }
+
+    kidframes kidButton {
+        0% {
+            background: #ffffff77;
+        }
+        100% {
+            background: #00000055;
+        }
+    }
+}
+
+// 動畫 animation 必須先額外設定動畫的效果
+// @關鍵影格 動畫名稱
+// 0% {} 開始時效果
+// 0% - 100% {}
+@keyframes kidImage {
+    0% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes kidTitle {
+    0% {
+        transform: translateX(-500px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
