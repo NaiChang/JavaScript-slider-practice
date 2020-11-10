@@ -8,10 +8,18 @@ https://naichang.github.io/JavaScript-slider-practice/
 
 ## CDN
 
+```
+    <!-- <head>裡 -->
+    <link rel="stylesheet" href="https://naichang.github.io/JavaScript-slider-practice/style.css">
+
+    <!-- </body>上方 -->
+    <script src="https://naichang.github.io/JavaScript-slider-practice/script.js"></script>
+```
+
 ## 架構
 
 ```
-     <!--  data-slider-duration 自動輪播速度 -->
+    <!--  data-slider-duration 自動輪播速度 -->
     <div id="kid-slider" data-slider-duration="3000">
 
         <!-- 輪播圖項目: 根據需求複製貼上 active 只有一組 -->
@@ -41,3 +49,4 @@ https://naichang.github.io/JavaScript-slider-practice/
             <div class="kid-button" data-slider-item="3"></div>
         </div>
     </div>
+```
